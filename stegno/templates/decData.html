@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>
+        <p>
+            {{do}}
+        </p>
+    </h2>
+
+    <a class="nav-link" href="{% url 'decrypt' %}">Backto Decrypt</a>
+
+    <a class="nav-link" href="{% url 'home' %}">Backto Home</a>
+
+{% endblock %}

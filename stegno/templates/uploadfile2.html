@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form> -->
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><label for="id_txtdata">Data to encrypt:</label> <textarea name="txtdata" cols="40" rows="10" required id="id_txtdata"></textarea></p>
+    <p><label for="id_document">Image to encrypt:</label> <input type="file" name="document" required id="id_document"></p>
+    <input type="text" name="uploaded_by" hidden="true" required id="id_uploaded_by" value="{{request.user.id}}">
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+{% endblock %}

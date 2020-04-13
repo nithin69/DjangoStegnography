@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Uploaded Datetime
+            </th>
+            <th>
+                Decrypt
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in docObj %}
+        <tr>
+            <td>
+                {{d.title}}
+            </td>
+            <td>
+                <img src="/media/{{d.document}}" alt="{{d.title}}" style="width:50px">
+            </td>
+            <td>
+                {{d.uploaded_at}}
+            </td>
+            <td>
+                <a href="/imgdec/{{d.id}}">
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                    Decrypt
+                </button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
